@@ -10,60 +10,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // variable
+  List<String> nameList = ["Cisco", "Mg Aye", "Mg Ant", "Honey", "Mg Nyan", "Ma Pa Pa"];
+  // List<String> majorList = ["CS", "CT", "IT", "Math", "Phtyos"]
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("AU Connect"),
       ),
-      body: Column(
+      body: ListView(
         children: [
-          InkWell(
-            onTap: (){
-              print("Cisco was tapped");
-              print("hello");
-              Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (context) => const CiscoPage(),
-                ),
-              );
-            },
-            child: Row(
-              children: [
-                SizedBox(width: 24.0,),
-                Icon(Icons.person, size: 50,),
-                SizedBox(width: 24.0,),
-                Text("Cisco", style: TextStyle(fontSize: 24),)
-              ],
-            ),
-          ),
-          SizedBox(height: 24,),
-          InkWell(
-            onTap: (){
-              Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (context) => const MgayePage(),
-                ),
-              );
-            },
-            child: Row(
-              children: [
-                SizedBox(width: 24.0,),
-                Icon(Icons.person, size: 50,),
-                SizedBox(width: 24.0,),
-                Text("Mg Aye", style: TextStyle(fontSize: 24),)
-              ],
-            ),
-          ),
-          SizedBox(height: 24,),
-          Row(
-            children: [
-              SizedBox(width: 24.0,),
-              Icon(Icons.person, size: 50,),
-              SizedBox(width: 24.0,),
-              Text("Mg Ant", style: TextStyle(fontSize: 24),)
-            ],
-          )
+          ...nameList.map((name) => ListTile(
+            leading: Icon(Icons.person),
+            title: Text(name),
+            subtitle: Text("major"),
+            trailing: Icon(Icons.arrow_forward_ios),
+          ))
         ],
       ),
     );
