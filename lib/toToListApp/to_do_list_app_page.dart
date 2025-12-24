@@ -17,8 +17,18 @@ class _ToDoListAppPageState extends State<ToDoListAppPage> {
       body: Column(
         children: [
           // text input
-
+          TextField(
+            decoration: const InputDecoration(
+              hintText: "Enter task ...",
+              border: OutlineInputBorder()
+            ),
+            onSubmitted: (String inputValue) {
+              print("TextField.onSubmitted");
+              print(inputValue);
+            },
+          ),
           // tasks list
+
         ],
       ),
     );
