@@ -1,6 +1,6 @@
 class Task{
   String title;
-  String isDone;
+  bool isDone;
 
   Task({
     required this.title,
