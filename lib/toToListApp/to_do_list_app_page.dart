@@ -48,7 +48,7 @@ class _ToDoListAppPageState extends State<ToDoListAppPage> {
               print(inputValue);
               // TODO: add to task list , clear text input
 
-              Task newTask = Task(title: inputValue, isDone: true);
+              Task newTask = Task(title: inputValue, isDone: false);
               setState(() {
                 tasks.insert(0, newTask);
               });
@@ -60,6 +60,11 @@ class _ToDoListAppPageState extends State<ToDoListAppPage> {
               itemBuilder: (context, index) => ListTile(
                 leading: tasks[index].isDone ? Icon(Icons.check_circle) : Icon(Icons.check_circle_outline),
                 title: Text(tasks[index].title),
+                trailing: IconButton(onPressed: (){
+                  setState(() {
+                    tasks.removeAt(index);
+                  });
+                }, icon: Icon(Icons.delete_forever, color: Colors.red,)),
                 onTap: (){
                   setState(() {
                     tasks[index].isDone = true;
