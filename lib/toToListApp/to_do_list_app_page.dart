@@ -12,10 +12,10 @@ class _ToDoListAppPageState extends State<ToDoListAppPage> {
   final TextEditingController _tec = TextEditingController();
   // state
   List<Task> tasks = [
-    Task(title: "Task One", isDone: false),
+    Task(title: "Task One", isDone: true),
     Task(title: "Task Two", isDone: false),
-    Task(title: "Task Three", isDone: false),
-    Task(title: "Task Four", isDone: false),
+    Task(title: "Task Three", isDone: true),
+    Task(title: "Task Four", isDone: true),
     Task(title: "Task Five", isDone: false),
     Task(title: "Task One", isDone: false),
     Task(title: "Task Two", isDone: false),
@@ -48,7 +48,7 @@ class _ToDoListAppPageState extends State<ToDoListAppPage> {
               print(inputValue);
               // TODO: add to task list , clear text input
 
-              Task newTask = Task(title: inputValue, isDone: false);
+              Task newTask = Task(title: inputValue, isDone: true);
               setState(() {
                 tasks.insert(0, newTask);
               });
@@ -56,11 +56,30 @@ class _ToDoListAppPageState extends State<ToDoListAppPage> {
             },
           ),
           // tasks list
-          Expanded(child: ListView(
-            children: tasks.map((task) {
-              return ListTile(title: Text(task.title),);
-            }).toList(),
-          ))
+          Expanded(child: ListView.separated(
+              itemBuilder: (context, index) => ListTile(
+                leading: tasks[index].isDone ? Icon(Icons.check_circle) : Icon(Icons.check_circle_outline),
+                title: Text(tasks[index].title),
+                onTap: (){
+                  setState(() {
+                    tasks[index].isDone = true;
+                  });
+                },
+              ),
+              separatorBuilder: (context, index) => Divider(),
+              itemCount: tasks.length
+          )),
+          // Expanded(child: ListView(
+          //   children: tasks.map((task) {
+          //     return ListTile(
+          //       leading: task.isDone ? Icon(Icons.check_circle) : Icon(Icons.check_circle_outline),
+          //       title: Text(task.title),
+          //       onTap: (){
+          //
+          //       },
+          //     );
+          //   }).toList(),
+          // ))
 
         ],
       ),
