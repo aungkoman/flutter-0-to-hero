@@ -10,6 +10,17 @@ class ToDoListAppPage extends StatefulWidget {
 class _ToDoListAppPageState extends State<ToDoListAppPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("To Do List"),
+      ),
+      body: Column(
+        children: [
+          // text input
+
+          // tasks list
+        ],
+      ),
+    );
   }
 }

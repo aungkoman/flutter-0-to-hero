@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zerohero/home_page.dart';
+import 'package:zerohero/toToListApp/to_do_list_app_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MyHomePage(title: "title"),
+      home: ToDoListAppPage(),
     );
   }
 }
