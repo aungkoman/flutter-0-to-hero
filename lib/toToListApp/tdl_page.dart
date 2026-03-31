@@ -52,7 +52,7 @@ class _TdlPageState extends State<TdlPage> {
           // tasks list
           Expanded(
             child: ListView.separated(
-                itemBuilder: (context, index) => ListTile(
+                itemBuilder: ( context, index) => ListTile(
                   leading: tasks[index].isDone ? Icon(Icons.check_circle) :  Icon(Icons.check_circle_outline),
                   title: Text(tasks[index].title),
                 ),

@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:zerohero/api/crud_api.dart';
+import 'package:zerohero/diary/diary_list_page.dart';
 import 'package:zerohero/home_page.dart';
+import 'package:zerohero/providers/diary_provider.dart';
 import 'package:zerohero/toToListApp/to_do_list_app_page.dart';
+import 'package:provider/provider.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => DiaryProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +43,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ToDoListAppPage(),
+      // home: DiaryListPage(),
+      home: CrudApi(),
     );
   }
 }
